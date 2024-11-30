@@ -1,0 +1,803 @@
+/* --General styles-- */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: black;
+  background-color: white;
+}
+/*-- Optional: Add some styling for the sections-- */
+h2,
+h3 {
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+/*--All button style--*/
+.cta-button {
+  display: inline-block;
+  padding: 10px 10px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+/*-- header bar style-- */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 0.25em 0;
+  background-color: rgba(137, 132, 132, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  left: 0;
+  color: #535253;
+  height: 40px;
+}
+
+.logo {
+  cursor: pointer;
+  display: flex;
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+  color: #000;
+}
+
+nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 1rem;
+  padding: 0;
+}
+
+nav ul li {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav ul li a {
+  color: #535253;
+  text-decoration: none;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: '';
+  width: 0;
+  height: 3px;
+  background: #535253;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: width 0.5s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #535253;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.menu-toggle .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #535253;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 30;
+    width: 100%;
+    background-color: rgba(251, 248, 248, 0.6);
+    padding: 0px;
+    text-align: center;
+    gap: 10px;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+}
+
+/*--section style--*/
+.section {
+  background-color: #f4f4f4;
+  padding: 2.5em;
+  margin-top: 2.5em;
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+
+
+/* --home section style--*/
+.hero {
+  background-image: url('https://img.freepik.com/premium-photo/picture-smoke-that-has-orange-orange-colors_740948-15906.jpg?ga=GA1.1.1298159162.1725785097&semt=ais_hybrid');
+  /* Add a background image */
+  background-size: cover;
+  color: black;
+  padding: 100px 20px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.event-overview {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f4f4f4;
+}
+
+.event-overview h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.featured {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.media-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+video {
+  max-width: 600px;
+  border-radius: 10px;
+}
+
+/*-- home section slide show style--*/
+.slideshow-container {
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+}
+
+.slides {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+.active {
+  display: block;
+}
+
+.fade {
+  animation: fade 1.5s ease-in-out;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+.schedule {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.schedule h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.schedule p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+/* Schedule Table */
+.schedule-table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.schedule-table th,
+.schedule-table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.schedule-table th {
+  background-color: #ff6347;
+  color: white;
+  font-size: 1.2em;
+}
+
+.schedule-table td {
+  font-size: 1em;
+  color: #333;
+}
+
+.schedule-table tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+.schedule-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.schedule-table td:first-child {
+  width: 150px;
+  /* Adjust width for time column */
+}
+
+.schedule-table td:nth-child(2) {
+  text-align: left;
+  /* Left-align event descriptions */
+}
+
+/* Teams Section */
+.teams {
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.teams h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.teams p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+/* Team Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Team Card */
+.team-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.team-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid #ff6347;
+}
+
+.team-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.team-card p {
+  font-size: 1em;
+  color: #555;
+  margin: 0;
+}
+
+/* Key Figures Section */
+.key-figures {
+  padding: 40px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.key-figures h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.key-figures p {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* Profile Grid */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Profile Card */
+.profile-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #ff6347;
+}
+
+.profile-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.profile-card p {
+  font-size: 1em;
+  color: #555;
+}
+
+
+/* Registration Section */
+.registration {
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.registration h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.registration p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+/* Registration Fees */
+.fees {
+  margin-bottom: 30px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.fees h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #ff6347;
+}
+
+/* Registration Form */
+.registration-form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.registration-form label {
+  display: block;
+  font-size: 1em;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.registration-form input,
+.registration-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #333;
+}
+
+.registration-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.registration-form button:hover {
+  background-color: #e5533c;
+}
+
+/* Advanced FAQs Section */
+.faqs {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.faqs h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.faqs p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.faq-item.active {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 1.2em;
+  background-color: #ff6347;
+  color: #fff;
+}
+
+.faq-question:hover {
+  background-color: #e5533c;
+}
+
+.faq-icon {
+  font-size: 1.5em;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  font-size: 1em;
+  color: #333;
+  background-color: #f7f7f7;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  padding: 15px 20px;
+}
+
+/* Contact Page */
+.contact-page {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.contact-page h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.contact-page p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+/* Flexbox Layout for Form and Venue Details */
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+}
+
+.contact-form-container {
+  flex: 1;
+  max-width: 48%; /* Adjusts form width */
+}
+
+.venue-map-container {
+  flex: 1;
+  max-width: 48%; /* Adjusts width for venue details and map */
+}
+
+.venue-details {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.venue-details h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: black;
+}
+
+.venue-details p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: black;
+}
+
+/* Contact Form Styling */
+.contact-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form label {
+  display: block;
+  font-size: 1em;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #333;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #e5533c;
+}
+
+/* Map Integration */
+.map-container {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column; /* Stacks items vertically on smaller screens */
+  }
+
+  .contact-form-container,
+  .venue-map-container {
+    max-width: 100%; /* Full width for all sections */
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-page h1 {
+    font-size: 1.8em;
+  }
+
+  .contact-page p {
+    font-size: 0.9em;
+  }
+
+  .contact-form {
+    padding: 10px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 6px;
+    font-size: 0.8em;
+  }
+
+  .contact-form button {
+    font-size: 0.9em;
+    padding: 6px;
+  }
+
+  .venue-details h2 {
+    font-size: 1.3em;
+  }
+
+  .venue-details p {
+    font-size: 0.9em;
+  }
+
+  .map-container iframe {
+    height: 200px;
+  }
+}
+
+
+
+
+/* footer bar  */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.contact-info,
+.newsletter {
+  margin: 10px;
+}
+
+.social-icons {
+  margin: 10px 0;
+}
+
+.social-icons img {
+  width: 30px;
+  margin: 0 5px;
+}
+
+/* Newsletter Form */
+.newsletter input {
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.newsletter button {
+  padding: 10px 15px;
+  background-color: #f39c12;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.newsletter button:hover {
+  background-color: #e67e22;
+}
